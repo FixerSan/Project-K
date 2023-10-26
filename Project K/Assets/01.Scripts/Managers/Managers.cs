@@ -45,8 +45,13 @@ public class Managers : MonoBehaviour
     private ResourceManager resource;
     private PoolManager pool;
     private EventManager event_;
-    private GameManager game;
     private CoroutineManager routine;
+    private DataManager data;
+    private ObjectManager _object;
+    private FactoryManager factory;
+
+
+    private GameManager game;
 
     // 각각의 매니저들에 대한 public 프로퍼티를 추가
     public static ResourceManager Resource { get { return Instance?.resource; } }
@@ -54,6 +59,9 @@ public class Managers : MonoBehaviour
     public static EventManager Event { get { return Instance?.event_; } }
     public static GameManager Game { get { return Instance?.game; } }
     public static CoroutineManager Routine { get { return Instance.routine; } }
+    public static DataManager Data { get { return Instance.data; } }
+    public static ObjectManager Object { get { return Instance._object; } }
+    public static FactoryManager Factory { get { return Instance.factory; } }
 
 
     private void CreateManagers()
@@ -61,6 +69,12 @@ public class Managers : MonoBehaviour
         resource = new ResourceManager();
         pool = new PoolManager();
         event_ = new EventManager();
+        routine = new CoroutineManager();
+        data = new DataManager();
+        _object = new ObjectManager();
+        factory = new FactoryManager();
+
+
         game = GameManager.Instance;
     }
 }
